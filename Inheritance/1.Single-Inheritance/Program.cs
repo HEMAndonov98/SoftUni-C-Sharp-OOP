@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace _1.Single_Inheritance
+namespace Farm
 {
-    class Program
+    public class StartUp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }
