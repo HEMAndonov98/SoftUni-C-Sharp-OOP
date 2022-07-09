@@ -5,9 +5,9 @@ namespace Restaurant
 	{
 		public Coffee(string name, double cafeine) : base(name, 3.50m, 50)
 		{
-			this.Cafeine = cafeine;
+			this.Caffeine = cafeine;
 		}
-        public double Cafeine { get; set; }
+        public double Caffeine { get; set; }
     }
 }
 

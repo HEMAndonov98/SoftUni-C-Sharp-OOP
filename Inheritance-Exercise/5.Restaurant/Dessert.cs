@@ -5,10 +5,10 @@ namespace Restaurant
 	{
 		public Dessert(string name, decimal price, double grams, double calories) : base(name, price, grams)
         {
-			this.Calorries = calories;
+			this.Calories = calories;
 		}
 
-        public double Calorries { get; set; }
+        public double Calories { get; set; }
     }
 }
 
