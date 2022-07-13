@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>_4.PizzaCalories</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Pizza\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pizza\" />
+  </ItemGroup>
+</Project>
