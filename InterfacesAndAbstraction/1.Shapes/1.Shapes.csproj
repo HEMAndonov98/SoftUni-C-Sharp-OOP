@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Shapes</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ShapeModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ShapeModels\" />
+  </ItemGroup>
+</Project>
