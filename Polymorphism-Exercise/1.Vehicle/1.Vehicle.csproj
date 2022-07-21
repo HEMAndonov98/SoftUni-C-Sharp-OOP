@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Vehicle</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Models\Interfaces\" />
+    <None Remove="Core\" />
+    <None Remove="Factories\" />
+    <None Remove="Factories\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\Interfaces\" />
+    <Folder Include="Core\" />
+    <Folder Include="Factories\" />
+    <Folder Include="Factories\Interfaces\" />
+  </ItemGroup>
+</Project>
