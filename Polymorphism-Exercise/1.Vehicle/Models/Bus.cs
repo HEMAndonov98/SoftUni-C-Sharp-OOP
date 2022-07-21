@@ -10,34 +10,13 @@ namespace Vehicle.Models
         public Bus(double fuelQuantity, double fuelConsumption, double tankCapacity)
             :base(fuelQuantity, fuelConsumption, tankCapacity)
         {
+            base.fuelCoefficient = AcModifier;
+            base.FuelConsumption = fuelConsumption;
         }
 
-        private bool IsEmpty { get; set; }
-
-        public void SetStatus(string status)
+        public override string DriveEmpty(double distance)
         {
-            if (status == "Drive")
-            {
-                this.IsEmpty = true;
-            }
-            else
-            {
-                this.IsEmpty = false;
-            }
-        }
-
-        public override string Drive(double distance)
-        {
-            double fuelNeeded;
-            if (IsEmpty == true)
-            {
-                return base.Drive(distance);
-            }
-            else
-            {
-                fuelNeeded = (this.FuelConsumption + AcModifier) * distance;
-            }
-
+            double fuelNeeded = (this.FuelConsumption - AcModifier) * distance;
             if (fuelNeeded < this.FuelQuantity)
             {
                 //enough fuel

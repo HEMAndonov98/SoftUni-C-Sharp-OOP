@@ -5,6 +5,12 @@ namespace Vehicle.Models
     {
         private const double refuelCoefficient = 0.95;
 
+        public Truck(double fuelQuantity, double fuelConsumption, double tankCapacity)
+            :this(fuelQuantity, fuelConsumption)
+        {
+            this.TankCapacity = tankCapacity;
+        }
+
         public Truck(double fuelQuantity, double fuelConsumption)
             :base(fuelQuantity, fuelConsumption)
         {
@@ -14,6 +20,11 @@ namespace Vehicle.Models
 
         public override void Refuel(double amount)
         {
+            if (this.FuelQuantity + amount > this.TankCapacity)
+            {
+                throw new ArgumentException($"Cannot fit {amount} fuel in the tank");
+            }
+
             base.Refuel(amount * refuelCoefficient);
         }
     }

@@ -11,9 +11,11 @@ namespace Vehicle
         static void Main(string[] args)
         {
             var factory = new VehicleFactory();
-            IVehicle car = factory.CreateVehicle(Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries));
-            IVehicle truck = factory.CreateVehicle(Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries));
-            Engine engine = new Engine(car, truck);
+            var car = factory.CreateVehicleWithCapacity(Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries));
+            var truck = factory.CreateVehicleWithCapacity(Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries));
+            var bus = factory.CreateVehicleWithCapacity(Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries));
+
+            Engine engine = new Engine(car, truck, bus);
             engine.Run();
         }
     }

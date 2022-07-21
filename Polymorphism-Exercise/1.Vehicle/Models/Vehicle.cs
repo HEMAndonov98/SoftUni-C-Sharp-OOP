@@ -5,9 +5,12 @@ namespace Vehicle.Models
 {
     public class Vehicle : IVehicle
     {
+        private const double AcModifier = 1.4;
+
         protected double fuelCoefficient;
         private double fuelConsumption;
-
+        private double tankCapacity;
+        
         protected Vehicle(double fuelQuantity, double fuelConsumption, double tankCapacity)
             :this(fuelQuantity, fuelConsumption)
         {
@@ -30,7 +33,20 @@ namespace Vehicle.Models
             }
         }
 
-        public double TankCapacity { get; protected set; }
+        public double TankCapacity {
+            get
+            {
+                return this.tankCapacity;
+            }
+            protected set
+            {
+                if (value < this.FuelQuantity)
+                {
+                    this.FuelQuantity = 0;
+                }
+                this.tankCapacity = value;
+            }
+        }
 
         public virtual string Drive(double distance)
         {
@@ -48,8 +64,23 @@ namespace Vehicle.Models
             }
         }
 
+        public virtual string DriveEmpty(double distance)
+        {
+            throw new NotImplementedException();
+        }
+
         public virtual void Refuel(double amount)
         {
+            if (amount <= 0)
+            {
+                throw new ArgumentException("Fuel must be a positive number");
+            }
+
+            if (this.FuelQuantity + amount > this.TankCapacity)
+            {
+                throw new ArgumentException($"Cannot fit {amount} fuel in the tank");
+            }
+
             this.FuelQuantity += amount;
         }
 

@@ -8,6 +8,7 @@ namespace Vehicle.Models.Interfaces
         double TankCapacity { get; }
 
         public string Drive(double distance);
+        public string DriveEmpty(double distance);
         public void Refuel(double amount);
     }
 }
