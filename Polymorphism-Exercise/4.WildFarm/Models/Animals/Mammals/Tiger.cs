@@ -19,6 +19,7 @@ namespace WildFarm.Models.Animals.Mammals
             {
                 double weightGained = food.Quantity * WeightModifier;
                 this.Weight += weightGained;
+                this.FoodEaten += food.Quantity;
             }
             else
             {
@@ -29,6 +30,11 @@ namespace WildFarm.Models.Animals.Mammals
                     food.GetType().Name)
                     );
             }
+        }
+
+        public override string ProduceSound()
+        {
+            return "ROAR!!!";
         }
     }
 }

@@ -24,6 +24,13 @@ namespace WildFarm.Models.Animals.Birds
         public double WingSize { get; protected set; }
 
         public abstract void Eat(IFood food);
+
+        public abstract string ProduceSound();
+
+        public override string ToString()
+        {
+            return $"{this.GetType().Name} [{this.Name}, {this.WingSize}, {this.Weight}, {this.FoodEaten}]";
+        }
     }
 }
 

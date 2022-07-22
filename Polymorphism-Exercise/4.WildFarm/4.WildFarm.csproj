@@ -15,6 +15,10 @@
     <None Remove="Models\Animals\Birds\" />
     <None Remove="ExceptionMessages\" />
     <None Remove="Models\Animals\Mammals\" />
+    <None Remove="Factories\" />
+    <None Remove="Factories\Interfaces\" />
+    <None Remove="Core\" />
+    <None Remove="Core\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -25,5 +29,9 @@
     <Folder Include="Models\Animals\Birds\" />
     <Folder Include="ExceptionMessages\" />
     <Folder Include="Models\Animals\Mammals\" />
+    <Folder Include="Factories\" />
+    <Folder Include="Factories\Interfaces\" />
+    <Folder Include="Core\" />
+    <Folder Include="Core\Interfaces\" />
   </ItemGroup>
 </Project>

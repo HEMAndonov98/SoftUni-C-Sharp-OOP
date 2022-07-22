@@ -16,6 +16,12 @@ namespace WildFarm.Models.Animals.Mammals
         public override void Eat(IFood food)
         {
             this.Weight += food.Quantity;
+            this.FoodEaten += food.Quantity;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.GetType().Name} [{this.Name}, {this.Breed}, {this.Weight}, {this.LivingRegion}, {this.FoodEaten}]";
         }
     }
 }

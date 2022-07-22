@@ -17,6 +17,12 @@ namespace WildFarm.Models.Animals.Birds
         {
             double weightGained = food.Quantity * WeightModifier;
             this.Weight += weightGained;
+            this.FoodEaten += food.Quantity;
+        }
+
+        public override string ProduceSound()
+        {
+            return "Cluck";
         }
     }
 }
