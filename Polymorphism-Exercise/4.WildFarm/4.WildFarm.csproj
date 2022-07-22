@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>WildFarm</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Models\Foods\" />
+    <None Remove="Models\Foods\Interfaces\" />
+    <None Remove="Models\Animals\" />
+    <None Remove="Models\Animals\Interfaces\" />
+    <None Remove="Models\Animals\Birds\" />
+    <None Remove="ExceptionMessages\" />
+    <None Remove="Models\Animals\Mammals\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\Foods\" />
+    <Folder Include="Models\Foods\Interfaces\" />
+    <Folder Include="Models\Animals\" />
+    <Folder Include="Models\Animals\Interfaces\" />
+    <Folder Include="Models\Animals\Birds\" />
+    <Folder Include="ExceptionMessages\" />
+    <Folder Include="Models\Animals\Mammals\" />
+  </ItemGroup>
+</Project>
