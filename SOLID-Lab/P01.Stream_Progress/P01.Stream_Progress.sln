@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1700.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P01.Stream_Progress", "P01.Stream_Progress.csproj", "{19C6B732-BC34-4026-B0AB-8A14F163B6A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19C6B732-BC34-4026-B0AB-8A14F163B6A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19C6B732-BC34-4026-B0AB-8A14F163B6A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19C6B732-BC34-4026-B0AB-8A14F163B6A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19C6B732-BC34-4026-B0AB-8A14F163B6A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {348182F9-B87C-407E-A004-DECCBDADB395}
+	EndGlobalSection
+EndGlobal
