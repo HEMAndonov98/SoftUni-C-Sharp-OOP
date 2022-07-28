@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Layouts\" />
+    <None Remove="Appenders\" />
+    <None Remove="Loggers\" />
+    <None Remove="Layouts\Interfaces\" />
+    <None Remove="Appenders\Interfaces\" />
+    <None Remove="Message\" />
+    <None Remove="Messages\Interfaces\" />
+    <None Remove="Enums\" />
+    <None Remove="Validators\" />
+    <None Remove="Validators\Interfaces\" />
+    <None Remove="Exceptions\" />
+    <None Remove="Formaters\" />
+    <None Remove="Formaters\Interfaces\" />
+    <None Remove="IO\" />
+    <None Remove="IO\Interfaces\" />
+    <None Remove="Loggers\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Layouts\" />
+    <Folder Include="Appenders\" />
+    <Folder Include="Loggers\" />
+    <Folder Include="Layouts\Interfaces\" />
+    <Folder Include="Appenders\Interfaces\" />
+    <Folder Include="Messages\" />
+    <Folder Include="Messages\Interfaces\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Validators\" />
+    <Folder Include="Validators\Interfaces\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Formaters\" />
+    <Folder Include="Formaters\Interfaces\" />
+    <Folder Include="IO\" />
+    <Folder Include="IO\Interfaces\" />
+    <Folder Include="Loggers\Interfaces\" />
+  </ItemGroup>
+</Project>
