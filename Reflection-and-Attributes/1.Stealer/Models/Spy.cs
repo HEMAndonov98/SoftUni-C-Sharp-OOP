@@ -11,13 +11,13 @@ namespace Stealer.Models.Contracts
         private Type type;
         private FieldInfo[] fields;
 
-        public Spy(IVisualizer visualizer)
+        public Spy()
         {
-            this.visualizer = visualizer;
+            this.visualizer = new SpyVisualizer();
         }
 
 
-        public void StealFieldInfo(string className, string[] fieldNames)
+        public string StealFieldInfo(string className,params string[] fieldNames)
         {
             Type classType = Type.GetType(className);
             this.type = classType;
@@ -31,10 +31,12 @@ namespace Stealer.Models.Contracts
                 );
             this.fields = fields.Where(f => fieldNames.Contains(f.Name))
                 .ToArray();
+
+            return this.ShowData();
         }
 
 
-        public string ShowData()
+        private string ShowData()
         {
             var sb = new StringBuilder();
             sb.AppendLine(this.visualizer.VisualizeClass(this.type));

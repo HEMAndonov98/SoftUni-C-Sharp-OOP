@@ -5,7 +5,7 @@ using Stealer.Models.Contracts;
 
 namespace Stealer.Models
 {
-    public class SpyVisualizer : IVisualizer
+    internal class SpyVisualizer : IVisualizer
     {
         private const string DefaultClassMessage = "Class under investigation: {0}";
 

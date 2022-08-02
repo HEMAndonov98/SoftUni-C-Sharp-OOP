@@ -8,9 +8,9 @@ namespace Stealer
     {
         static void Main(string[] args)
         {
-            ISpy spy = new Spy();
-            string hackerName = typeof(Hacker).FullName;
-            Console.WriteLine(spy.StealFieldInfo(hackerName , "username", "password"));
+            string fName = typeof(Hacker).FullName;
+            var spy = new Spy();
+            Console.WriteLine(spy.AnalyzeAccessModifiers(fName));
         }
     }
 }
