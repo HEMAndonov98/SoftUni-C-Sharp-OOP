@@ -77,6 +77,17 @@ namespace DatabaseTests
             Assert.AreEqual(typeof(int[]), constructorArguments[0].ParameterType);
         }
 
+
+        [Test]
+        public void Test_FetchMethodShouldReturnArray()
+        {
+            Type type = typeof(Database);
+            MethodInfo methodInfo = type.GetMethod("Fetch");
+            Type methodReturnType = methodInfo.ReturnType;
+            Type expectedReturnType = typeof(int[]);
+
+            Assert.AreEqual(expectedReturnType, methodReturnType);
+        }
     }
 }
 //Storing array's capacity must be exactly 16 integer
@@ -90,6 +101,6 @@ namespace DatabaseTests
 
 //o If you try to remove an element from an empty Database, InvalidOperationException is thrown -- done
 
-//· Constructors should take integers only, and store them in the array
+//· Constructors should take integers only, and store them in the array - done
 
 //· The "Fetch()" method should return the elements as an array
