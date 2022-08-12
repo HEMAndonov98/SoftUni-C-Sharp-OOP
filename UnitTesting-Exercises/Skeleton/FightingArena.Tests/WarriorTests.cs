@@ -1,6 +1,7 @@
 namespace FightingArena.Tests
 {
     using System;
+    using System.Reflection;
     using NUnit.Framework;
 
     [TestFixture]
@@ -19,18 +20,64 @@ namespace FightingArena.Tests
         [Test]
         public void ConstructorShouldCreateValidWarrior()
         {
-            var expectedName = "Chris";
-            var actualName = this.warrior.Name;
+            var expectedName = "TestWarrior";
+            var ExpectedDamage = 40;
+            var ExpectedHp = 150;
 
-            var expectedDamage = 30;
-            var actualDamage = this.warrior.Damage;
+            var testWarrior = new Warrior(expectedName, ExpectedDamage, ExpectedHp);
 
-            var expectedHp = 100;
-            var actualHp = this.warrior.HP;
+            string actualName = (string)this.GetField("name").GetValue(testWarrior);
+            int actualDamage = (int)this.GetField("damage").GetValue(testWarrior);
+            int actualHp = (int)this.GetField("hp").GetValue(testWarrior);
 
-            Assert.AreEqual(expectedName, actualName);
-            Assert.AreEqual(expectedDamage, actualDamage);
-            Assert.AreEqual(expectedHp, actualHp);
+            Assert.AreEqual(expectedName, actualName, "Constructor sohuld set same name as provided");
+            Assert.AreEqual(ExpectedDamage, actualDamage, "Constructor sohuld set same damage as provided");
+            Assert.AreEqual(ExpectedHp, actualHp, "Constructor sohuld set same hp as provided");
+        }
+
+        private FieldInfo GetField(string fieldname)
+            => typeof(Warrior).GetField(fieldname, BindingFlags.Instance | BindingFlags.NonPublic);
+
+
+
+        //Tests for property getters
+
+        [TestCase("jhon")]
+        [TestCase("Peter")]
+        [TestCase("Ray")]
+        [Test]
+        public void NameGetterShouldReturnValidName(string expectedName)
+        {
+            var testWarrior = new Warrior(expectedName, this.warrior.Damage, this.warrior.HP);
+            var actualName = testWarrior.Name;
+
+            Assert.AreEqual(expectedName, actualName, "Should return same Name as provided");
+        }
+
+        [TestCase(30)]
+        [TestCase(60)]
+        [TestCase(100)]
+        [Test]
+        public void DamageGetterShouldReturnValidDamage(int expectedDamage)
+        {
+            var testWarrior = new Warrior(this.warrior.Name, expectedDamage, this.warrior.HP);
+
+            var actualDamage = testWarrior.Damage;
+
+            Assert.AreEqual(expectedDamage, actualDamage, "Should return same Damage as provided");
+        }
+
+        [TestCase(50)]
+        [TestCase(100)]
+        [TestCase(200)]
+        [Test]
+        public void HpGetterShouldReturnValidHp(int expectedHp)
+        {
+            var testWarrior = new Warrior(this.warrior.Name, this.warrior.Damage, expectedHp);
+
+            var actualHp = testWarrior.HP;
+
+            Assert.AreEqual(expectedHp, actualHp, "Should return same Hp as provided");
         }
 
 
@@ -38,15 +85,26 @@ namespace FightingArena.Tests
 
         [TestCase(null)]
         [TestCase("")]
-        [TestCase(" ")]
         [Test]
-        public void WarriorNameShouldThrowExeptionIfNullOrWhitespace(string warriorName)
+        public void WarriorNameShouldThrowExeptionIfNullOrEmpty(string warriorName)
         {
             Assert.Throws<ArgumentException>(() =>
             {
                 new Warrior(warriorName, this.warrior.Damage, this.warrior.HP);
-            }, "Should not be able to set warrior name to null, empty or whitespace string");
+            }, "Should not be able to set warrior name to null or empty string");
         }
+
+        [Test]
+        public void WarriorNameShouldThrowExceptionIfWhiteSpace()
+        {
+            string whiteSpaceForName = " ";
+
+            Assert.Throws<ArgumentException>(() =>
+            {
+                new Warrior(whiteSpaceForName, this.warrior.Damage, this.warrior.HP);
+            }, "Warrior name should throw expection if whitespace");
+        }
+
 
         [TestCase(0)]
         [TestCase(-1)]
@@ -92,10 +150,26 @@ namespace FightingArena.Tests
             Assert.AreEqual(expectedDefenderHp, actualDefenderHp);
         }
 
+        [TestCase(120)]
+        [TestCase(200)]
+        [TestCase(300)]
+        [Test]
+        public void IfAttackerDamageIsMoreThanDefenderHealthShouldSetDefenderHpTo0(int attackerDamage)
+        {
+            var testWarrior = new Warrior(this.warrior.Name, attackerDamage, this.warrior.HP);
+            testWarrior.Attack(this.warrior);
+
+            var actualDefenderHp = this.warrior.HP;
+
+            Assert.That(actualDefenderHp, Is.Zero);
+
+        }
+
+        [TestCase(10)]
         [TestCase(30)]
         [TestCase(29)]
         [Test]
-        public void WarriorAttackShouldThrowExceptionIfHisHpIsLessThanOrEqualTo30(int warriorHp)
+        public void WarriorAttackShouldThrowExceptionIfAttackerHpIsLessThanOrEqualTo30(int warriorHp)
         {
             var testWarrior = new Warrior("Test", this.warrior.Damage, warriorHp);
 
@@ -105,6 +179,7 @@ namespace FightingArena.Tests
             }, "Should not be able to attack if hp is lower than or equal to 30");
         }
 
+        [TestCase(10)]
         [TestCase(30)]
         [TestCase(29)]
         [Test]
@@ -118,17 +193,17 @@ namespace FightingArena.Tests
             }, "Should not be able to attack if defender hp is lower than or equal to 30");
         }
 
-        [TestCase(29)]
-        [TestCase(10)]
-        [TestCase(0)]
+        [TestCase(101)]
+        [TestCase(110)]
+        [TestCase(200)]
         [Test]
-        public void AttackingStrongerFoeShouldThorwException(int warriorHp)
+        public void AttackingStrongerFoeShouldThorwException(int defenderAttack)
         {
-            var testWarrior = new Warrior("Attacker", this.warrior.Damage, warriorHp);
+            var testWarrior = new Warrior("Attacker", defenderAttack, this.warrior.HP);
 
             Assert.Throws<InvalidOperationException>(() =>
             {
-                testWarrior.Attack(this.warrior);
+                this.warrior.Attack(testWarrior);
             }, "Should not be able to attack if oponent is stronger(Has more damage than your health)");
         }
     }
