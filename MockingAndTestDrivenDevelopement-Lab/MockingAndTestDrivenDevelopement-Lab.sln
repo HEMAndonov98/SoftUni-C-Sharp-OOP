@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1703.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INStock", "..\..\..\..\Users\hristoandonov\Downloads\INStock - Skeleton\INStock\INStock.csproj", "{E1ED5620-6D7A-4FD4-A14A-524E014B36C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INStock.Tests", "..\..\..\..\Users\hristoandonov\Downloads\INStock - Skeleton\INStock.Tests\INStock.Tests.csproj", "{EBFEBB23-587B-46D6-A217-61DC7C656588}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1ED5620-6D7A-4FD4-A14A-524E014B36C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1ED5620-6D7A-4FD4-A14A-524E014B36C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1ED5620-6D7A-4FD4-A14A-524E014B36C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1ED5620-6D7A-4FD4-A14A-524E014B36C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBFEBB23-587B-46D6-A217-61DC7C656588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBFEBB23-587B-46D6-A217-61DC7C656588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBFEBB23-587B-46D6-A217-61DC7C656588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBFEBB23-587B-46D6-A217-61DC7C656588}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04A4DFDC-6B78-4599-AB29-1BAA771CCFAE}
+	EndGlobalSection
+EndGlobal
