@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1703.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontDeskApp", "..\..\..\..\Users\hristoandonov\Downloads\03. Unit Tests_Skeleton\FrontDeskApp\FrontDeskApp.csproj", "{764E17C1-965D-4F76-9067-1F1E491F9B69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookigApp.Tests", "..\..\..\..\Users\hristoandonov\Downloads\03. Unit Tests_Skeleton\BookigApp.Tests\BookigApp.Tests.csproj", "{2CFE1CD8-E3AA-4501-A077-59F540AA079D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp", "..\..\..\..\Users\hristoandonov\Downloads\01. Structure_Skeleton\BookingApp.csproj", "{40B9B173-56EE-45EC-A938-517D77172EAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{764E17C1-965D-4F76-9067-1F1E491F9B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{764E17C1-965D-4F76-9067-1F1E491F9B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{764E17C1-965D-4F76-9067-1F1E491F9B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{764E17C1-965D-4F76-9067-1F1E491F9B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CFE1CD8-E3AA-4501-A077-59F540AA079D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CFE1CD8-E3AA-4501-A077-59F540AA079D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CFE1CD8-E3AA-4501-A077-59F540AA079D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CFE1CD8-E3AA-4501-A077-59F540AA079D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40B9B173-56EE-45EC-A938-517D77172EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40B9B173-56EE-45EC-A938-517D77172EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40B9B173-56EE-45EC-A938-517D77172EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40B9B173-56EE-45EC-A938-517D77172EAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE6394C4-5FBB-41D4-9E38-7EE2C247DD2A}
+	EndGlobalSection
+EndGlobal
