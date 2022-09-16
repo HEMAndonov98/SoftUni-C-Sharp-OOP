@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Models\Container\" />
+    <None Remove="Models\Collection\" />
+    <None Remove="Models\Container\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\Container\" />
+    <Folder Include="Models\Collection\" />
+    <Folder Include="Models\Container\Interfaces\" />
+  </ItemGroup>
+</Project>
