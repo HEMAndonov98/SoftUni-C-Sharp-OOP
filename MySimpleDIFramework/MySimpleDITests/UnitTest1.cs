@@ -1,5 +1,6 @@
 ﻿namespace MySimpleDITests;
 
+using Microsoft.VisualStudio.TestPlatform.TestHost;
 using MySimpleDI.Models.Collection;
 using TestingModels;
 
@@ -80,8 +81,32 @@ public class Tests
     }
 
     [Test]
-    public void  CreateAutoRegisterMethod()
+    public void ResolveShouldWorkWithValueTypes()
     {
+        var serviceCollection = new ServiceCollection();
+        var serviceProvider = serviceCollection.BuildServices();
 
+        var data = serviceProvider.Resolve<ClassWithValueTypesConstructor>();
+
+        Assert.That(data, Is.TypeOf<ClassWithValueTypesConstructor>());
+    }
+
+    [Test]
+    public void AutoRegisterShouldRegisterAllDependenciesOfTheGivenAssembly()
+    {
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.RegisterAll<Tests>();
+        var serviceProvider = serviceCollection.BuildServices();
+
+        var brain = serviceProvider.GetImplementation<IBrain>();
+        var soul = serviceProvider.GetImplementation<ISoul>();
+        var person = serviceProvider.GetImplementation<IPerson>();
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(brain, Is.TypeOf<Brain>());
+            Assert.That(soul, Is.TypeOf<Soul>());
+            Assert.That(person, Is.TypeOf<Person>());
+        });
     }
 }

@@ -55,6 +55,11 @@ namespace MySimpleDI.Models.Container
             {
                 var parameterType = parameters[i].ParameterType;
 
+                if (parameterType.IsValueType || parameterType.Name == "String" || parameterType.IsArray)
+                {
+                    dependencies[dependenciesIndex++] = this.GetBaseType(parameterType);
+                    continue;
+                }
                 var dependency = this.GetImplementation(parameterType);
 
                 dependencies[dependenciesIndex++] = dependency;
@@ -62,6 +67,23 @@ namespace MySimpleDI.Models.Container
 
             return constructor.Invoke(dependencies);
 
+        }
+
+        private object GetBaseType(Type type)
+        {
+            if (type.IsValueType)
+            {
+                return Activator.CreateInstance(type)!;
+            }
+            else if (type == typeof(string))
+            {
+                return string.Empty;
+            }
+            else if (type.IsArray)
+            {
+                var array = Array.CreateInstance(type.GetElementType()!, 1);
+            }
+            throw new ArgumentException();
         }
     }
 }
