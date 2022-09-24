@@ -7,11 +7,7 @@
     {
         public static void Main()
         {
-            //ConsoleWindow.CustomizeConsole();
-            var wall = new Wall(50, 20);
-            var snake = new Snake(wall);
-
-            snake.GetFoods();
+            ConsoleWindow.CustomizeConsole();
         }
     }
 }

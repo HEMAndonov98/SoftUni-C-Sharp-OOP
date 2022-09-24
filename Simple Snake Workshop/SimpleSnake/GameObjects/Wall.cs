@@ -34,6 +34,11 @@
             this.SetVerticalLine(0);
             this.SetVerticalLine(this.LeftX - 1);
         }
+
+        //Check If head of snake has hit a wall
+        public bool IsPointOfWall(Point snakeHead)
+            => snakeHead.TopY == 0 || snakeHead.TopY == this.TopY ||
+            snakeHead.LeftX == 0 || snakeHead.LeftX == this.LeftX;
     }
 }
 
