@@ -6,6 +6,7 @@
 
     public class Snake
     {
+        private const int BaseSnakeLength = 6;
         private const char snakeSymbol = '\u25CF';
 
         private Queue<Point> snakeElements;
@@ -19,16 +20,24 @@
         private int RandomFoodNumber
             => this.random.Next(0, this.foods.Count);
 
-        public Snake(Wall wall)
+
+        private Snake()
         {
             this.random = new Random();
-            this.wall = wall;
-            this.snakeElements = new Queue<Point>();
             this.foods = new List<Food>();
+            this.snakeElements = new Queue<Point>();
             this.foodIndex = this.RandomFoodNumber;
+        }
+
+        public Snake(Wall wall)
+            :this()
+        {
+            this.wall = wall;
             this.GetFoods();
             this.CreateSnake();
         }
+
+        public int Score => this.snakeElements.Count - BaseSnakeLength;
 
         public bool IsMoving(Point direction)
         {
@@ -81,6 +90,9 @@
             {
                 this.snakeElements.Enqueue(new Point(2, topY));
             }
+
+            this.foodIndex = this.RandomFoodNumber;
+            this.foods[this.foodIndex].SetRandomPosition(this.snakeElements);
         }
 
         private void GetFoods()

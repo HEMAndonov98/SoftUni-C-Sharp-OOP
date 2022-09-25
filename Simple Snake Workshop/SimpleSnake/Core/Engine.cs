@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Diagnostics;
+using System.Threading;
 using SimpleSnake.Enums;
 using SimpleSnake.GameObjects;
 
@@ -11,19 +12,26 @@ namespace SimpleSnake.Core
         private readonly Wall wall;
         private Direction direction;
         private double sleepTime;
+        private Stopwatch watch;
+
+        private Engine()
+        {
+            this.sleepTime = 100;
+            this.pointsOfDirection = new Point[4];
+            this.watch = new Stopwatch();
+        }
 
         public Engine(Wall wall, Snake snake)
+            : this()
         {
             this.wall = wall;
             this.snake = snake;
-            this.sleepTime = 100;
-            this.pointsOfDirection = new Point[4];
         }
 
         public void Run()
         {
             this.CreateDirections();
-
+            this.watch.Start();
             while (true)
             {
                 if (Console.KeyAvailable)
@@ -36,6 +44,7 @@ namespace SimpleSnake.Core
 
                 if (isMoving == false)
                 {
+                    this.watch.Stop();
                     this.AskUserForRestart();
                 }
 
@@ -48,13 +57,13 @@ namespace SimpleSnake.Core
         private void CreateDirections()
         {
             //Left
-            this.pointsOfDirection[0] = new Point(-1, 0);
+            this.pointsOfDirection[0] = new Point(1, 0);
             //Right
-            this.pointsOfDirection[1] = new Point(1, 0);
+            this.pointsOfDirection[1] = new Point(-1, 0);
             //Down
-            this.pointsOfDirection[2] = new Point(0, -1);
+            this.pointsOfDirection[2] = new Point(0, 1);
             //Up
-            this.pointsOfDirection[3] = new Point(0, 1);
+            this.pointsOfDirection[3] = new Point(0, -1);
         }
 
         private void GetNextDirection()
@@ -99,11 +108,9 @@ namespace SimpleSnake.Core
 
         private void AskUserForRestart()
         {
-            int leftX = this.wall.LeftX - 1;
-            int topY = 3;
 
-            Console.SetCursorPosition(leftX, topY);
-            Console.Write("Would you like to continue? y/n");
+            Console.SetCursorPosition(this.wall.LeftX / 2 - 16, this.wall.TopY / 2);
+            Console.Write("Would you like to continue? y/n: ");
 
             string input = Console.ReadLine();
 
@@ -120,8 +127,12 @@ namespace SimpleSnake.Core
 
         private void StopGame()
         {
-            Console.SetCursorPosition(20, 10);
+            Console.SetCursorPosition(20, this.wall.TopY / 2 + 1);
             Console.Write("Game over!");
+            Console.SetCursorPosition(20, this.wall.TopY / 2 + 2);
+            Console.Write($"Final Score: {this.snake.Score}");
+            Console.SetCursorPosition(20, this.wall.TopY / 2 + 3);
+            Console.Write($"Seconds survived: {this.watch.ElapsedMilliseconds / 1000}s");
             Environment.Exit(0);
         }
     }

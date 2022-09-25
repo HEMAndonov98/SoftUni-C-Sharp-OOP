@@ -32,11 +32,11 @@
                 this.TopY = this.random.Next(2, this.wall.TopY - 2);
             }
 
-            var backgroundColor = this.random.Next(0, 16);
+            var backgroundColor = this.random.Next(2, 16);
 
-            Console.BackgroundColor = ConsoleColor.Red;
-            this.Draw(this.foodSymbol);
             Console.BackgroundColor = (ConsoleColor)backgroundColor;
+            this.Draw(this.foodSymbol);
+            Console.BackgroundColor = ConsoleColor.Black;
         }
 
         public bool IsFoodPoint(Point snake)
