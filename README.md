@@ -1,0 +1,2 @@
+# Solutions to all exercises in the SoftUni OOP course
+You can test all the solutions and find the problem descriptions here ---> [SoftUni Judge](https://judge.softuni.org/Contests/#!/List/ByCategory/184/CSharp-OOP-Exercises)
